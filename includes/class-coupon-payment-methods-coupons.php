@@ -81,7 +81,8 @@ final class Coupon_Payment_Methods_Coupons {
 	}
 
 	private static function get_error_message() {
-		$message = get_option( Coupon_Payment_Methods::ERROR_MESSAGE_OPTION, Coupon_Payment_Methods::DEFAULT_ERROR );
-		return is_string( $message ) && '' !== trim( $message ) ? $message : Coupon_Payment_Methods::DEFAULT_ERROR;
+		$default = __( Coupon_Payment_Methods::DEFAULT_ERROR, 'coupon-payment-methods' );
+		$message = get_option( Coupon_Payment_Methods::ERROR_MESSAGE_OPTION, $default );
+		return is_string( $message ) && '' !== trim( $message ) ? $message : $default;
 	}
 }

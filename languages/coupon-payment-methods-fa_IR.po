@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Coupon Payment Methods 1.4.0\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Coupon Payment Methods"
+msgstr "محدودیت روش پرداخت کد تخفیف ووکامرس"
+
+msgid "Choose eligible payment methods for each coupon and customize the notice shown for an ineligible payment method."
+msgstr "روش‌های پرداخت مجاز هر کد تخفیف را تعیین کنید و متن پیام روش پرداخت نامجاز را سفارشی کنید."
+
+msgid "Restrict payment methods"
+msgstr "محدودیت روش پرداخت"
+
+msgid "When enabled, this coupon can only be used with the selected payment methods."
+msgstr "با فعال‌کردن این گزینه، این کد تخفیف فقط با روش‌های پرداخت انتخاب‌شده قابل استفاده است."
+
+msgid "No payment methods were found in WooCommerce."
+msgstr "هیچ روش پرداختی در ووکامرس پیدا نشد."
+
+msgid "Allowed payment methods"
+msgstr "روش‌های پرداخت مجاز"
+
+msgid "If you enable this restriction without selecting a method, the coupon will not be valid with any payment method."
+msgstr "اگر این محدودیت را فعال کنید اما روشی را انتخاب نکنید، کد تخفیف با هیچ روش پرداختی معتبر نخواهد بود."
+
+msgid "Coupon payment method settings"
+msgstr "تنظیمات محدودیت روش پرداخت کد تخفیف"
+
+msgid "Coupon settings"
+msgstr "تنظیمات کد تخفیف"
+
+msgid "This coupon is only valid for cash payments."
+msgstr "این کد تخفیف فقط برای پرداخت نقدی معتبر می‌باشد."
+
+msgid "Choose allowed payment methods in the \"Usage restriction\" tab of each coupon. The message below is shown when a customer selects a payment method that is not allowed for that coupon."
+msgstr "روش‌های پرداخت مجاز را در زبانه «محدودیت استفاده» هر کد تخفیف انتخاب کنید. متن زیر زمانی نمایش داده می‌شود که مشتری روش پرداختی را انتخاب کند که برای آن کوپن مجاز نیست."
+
+msgid "Payment method restriction error message"
+msgstr "متن خطای روش پرداخت نامجاز"
+
+msgid "Default message: “%s”"
+msgstr "متن پیش‌فرض: «%s»"
+
+msgid "Save changes"
+msgstr "ذخیره تغییرات"
+
+msgid "Repository:"
+msgstr "مخزن افزونه:"
+
+msgid "Search GitHub"
+msgstr "جستجو در GitHub"
+
+msgid "temporary link until the official repository is published"
+msgstr "پیوند موقت تا زمان انتشار مخزن اصلی"
+
+msgid "Settings"
+msgstr "تنظیمات"

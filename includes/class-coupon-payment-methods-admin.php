@@ -29,15 +29,15 @@ final class Coupon_Payment_Methods_Admin {
 			<div class="coupon-payment-methods-box">
 				<label class="coupon-payment-methods-toggle" for="coupon_payment_methods_restrict">
 					<input type="checkbox" id="coupon_payment_methods_restrict" name="coupon_payment_methods_restrict" value="yes" <?php checked( $enabled ); ?> />
-					<span>محدودیت روش پرداخت</span>
+					<span><?php echo esc_html__( 'Restrict payment methods', 'coupon-payment-methods' ); ?></span>
 				</label>
-				<p class="coupon-payment-methods-description">با فعال‌کردن این گزینه، کد تخفیف فقط با روش‌های انتخاب‌شده قابل استفاده است.</p>
+				<p class="coupon-payment-methods-description"><?php echo esc_html__( 'When enabled, this coupon can only be used with the selected payment methods.', 'coupon-payment-methods' ); ?></p>
 				<?php wp_nonce_field( 'coupon_payment_methods_save_coupon', 'coupon_payment_methods_nonce' ); ?>
 
 				<?php if ( empty( $gateways ) ) : ?>
-					<p class="coupon-payment-methods-description">روش پرداختی در ووکامرس پیدا نشد.</p>
+					<p class="coupon-payment-methods-description"><?php echo esc_html__( 'No payment methods were found in WooCommerce.', 'coupon-payment-methods' ); ?></p>
 				<?php else : ?>
-					<div class="coupon-payment-methods-label">روش‌های پرداخت مجاز</div>
+					<div class="coupon-payment-methods-label"><?php echo esc_html__( 'Allowed payment methods', 'coupon-payment-methods' ); ?></div>
 					<div class="coupon-payment-methods-grid">
 						<?php foreach ( $gateways as $gateway_id => $gateway ) : ?>
 							<?php $label = is_callable( array( $gateway, 'get_title' ) ) ? $gateway->get_title() : $gateway->title; ?>
@@ -47,7 +47,7 @@ final class Coupon_Payment_Methods_Admin {
 							</label>
 						<?php endforeach; ?>
 					</div>
-					<p class="coupon-payment-methods-description">اگر محدودیت را فعال کنید و هیچ روشی را انتخاب نکنید، این کد تخفیف با هیچ روش پرداختی معتبر نخواهد بود.</p>
+					<p class="coupon-payment-methods-description"><?php echo esc_html__( 'If you enable this restriction without selecting a method, the coupon will not be valid with any payment method.', 'coupon-payment-methods' ); ?></p>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -72,8 +72,8 @@ final class Coupon_Payment_Methods_Admin {
 	public static function add_settings_page() {
 		add_submenu_page(
 			'woocommerce',
-			'تنظیمات محدودیت روش پرداخت کد تخفیف',
-			'تنظیمات کد تخفیف',
+			__( 'Coupon payment method settings', 'coupon-payment-methods' ),
+			__( 'Coupon settings', 'coupon-payment-methods' ),
 			'manage_woocommerce',
 			Coupon_Payment_Methods::PAGE_SLUG,
 			array( __CLASS__, 'render_settings_page' )
@@ -87,7 +87,7 @@ final class Coupon_Payment_Methods_Admin {
 			array(
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_textarea_field',
-				'default'           => Coupon_Payment_Methods::DEFAULT_ERROR,
+				'default'           => __( Coupon_Payment_Methods::DEFAULT_ERROR, 'coupon-payment-methods' ),
 			)
 		);
 	}
@@ -97,26 +97,27 @@ final class Coupon_Payment_Methods_Admin {
 			return;
 		}
 
-		$message = get_option( Coupon_Payment_Methods::ERROR_MESSAGE_OPTION, Coupon_Payment_Methods::DEFAULT_ERROR );
+		$default_message = __( Coupon_Payment_Methods::DEFAULT_ERROR, 'coupon-payment-methods' );
+		$message         = get_option( Coupon_Payment_Methods::ERROR_MESSAGE_OPTION, $default_message );
 		?>
-		<div class="wrap coupon-payment-methods-settings" dir="rtl">
-			<h1>تنظیمات محدودیت روش پرداخت کد تخفیف</h1>
-			<p>روش‌های پرداخت مجاز را در تب «محدودیت استفاده» خود هر کد تخفیف انتخاب کنید. متن زیر هنگام انتخاب روش پرداخت غیرمجاز نمایش داده می‌شود.</p>
+		<div class="wrap coupon-payment-methods-settings" dir="<?php echo is_rtl() ? 'rtl' : 'ltr'; ?>">
+			<h1><?php echo esc_html__( 'Coupon payment method settings', 'coupon-payment-methods' ); ?></h1>
+			<p><?php echo esc_html__( 'Choose allowed payment methods in the "Usage restriction" tab of each coupon. The message below is shown when a customer selects a payment method that is not allowed for that coupon.', 'coupon-payment-methods' ); ?></p>
 			<form action="options.php" method="post">
 				<?php settings_fields( 'coupon_payment_methods_settings' ); ?>
 				<table class="form-table" role="presentation"><tbody>
 					<tr>
-						<th scope="row"><label for="coupon_payment_methods_error_message">متن خطای روش پرداخت نامجاز</label></th>
+						<th scope="row"><label for="coupon_payment_methods_error_message"><?php echo esc_html__( 'Payment method restriction error message', 'coupon-payment-methods' ); ?></label></th>
 						<td>
 							<textarea id="coupon_payment_methods_error_message" name="<?php echo esc_attr( Coupon_Payment_Methods::ERROR_MESSAGE_OPTION ); ?>" rows="3" class="large-text"><?php echo esc_textarea( $message ); ?></textarea>
-							<p class="description">متن پیش‌فرض: «<?php echo esc_html( Coupon_Payment_Methods::DEFAULT_ERROR ); ?>»</p>
+							<p class="description"><?php echo esc_html( sprintf( __( 'Default message: “%s”', 'coupon-payment-methods' ), $default_message ) ); ?></p>
 						</td>
 					</tr>
 				</tbody></table>
-				<?php submit_button( 'ذخیره تغییرات' ); ?>
+				<?php submit_button( __( 'Save changes', 'coupon-payment-methods' ) ); ?>
 			</form>
 			<hr />
-			<p>مخزن افزونه: <a href="https://github.com/search?q=coupon-payment-methods&type=repositories" target="_blank" rel="noopener noreferrer">جستجوی مخزن در گیت‌هاب</a> (پیوند موقت تا زمان انتشار مخزن اصلی).</p>
+			<p><?php echo esc_html__( 'Repository:', 'coupon-payment-methods' ); ?> <a href="https://github.com/search?q=coupon-payment-methods&amp;type=repositories" target="_blank" rel="noopener noreferrer"><?php echo esc_html__( 'Search GitHub', 'coupon-payment-methods' ); ?></a> (<?php echo esc_html__( 'temporary link until the official repository is published', 'coupon-payment-methods' ); ?>).</p>
 		</div>
 		<?php
 	}
@@ -139,7 +140,7 @@ final class Coupon_Payment_Methods_Admin {
 
 	public static function add_settings_link( $links ) {
 		$url  = admin_url( 'admin.php?page=' . Coupon_Payment_Methods::PAGE_SLUG );
-		$link = '<a href="' . esc_url( $url ) . '">تنظیمات</a>';
+		$link = '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Settings', 'coupon-payment-methods' ) . '</a>';
 		array_unshift( $links, $link );
 		return $links;
 	}

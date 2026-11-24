@@ -1,11 +1,12 @@
 <?php
 /**
- * Plugin Name: محدودیت روش پرداخت کد تخفیف ووکامرس
+ * Plugin Name: Coupon Payment Methods
  * Plugin URI: https://github.com/search?q=coupon-payment-methods&type=repositories
- * Description: روش‌های پرداخت مجاز هر کد تخفیف را تعیین کنید و متن پیام روش پرداخت نامجاز را سفارشی کنید.
- * Version: 1.3.0
+ * Description: Choose eligible payment methods for each coupon and customize the notice shown for an ineligible payment method.
+ * Version: 1.4.0
  * Author: علی دولت آبادی
  * Text Domain: coupon-payment-methods
+ * Domain Path: /languages
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * WC requires at least: 6.0
@@ -17,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'COUPON_PAYMENT_METHODS_VERSION', '1.3.0' );
+define( 'COUPON_PAYMENT_METHODS_VERSION', '1.4.0' );
 define( 'COUPON_PAYMENT_METHODS_FILE', __FILE__ );
 define( 'COUPON_PAYMENT_METHODS_PATH', plugin_dir_path( __FILE__ ) );
 

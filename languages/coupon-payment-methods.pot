@@ -1,0 +1,59 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Coupon Payment Methods 1.4.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Coupon Payment Methods"
+msgstr ""
+
+msgid "Choose eligible payment methods for each coupon and customize the notice shown for an ineligible payment method."
+msgstr ""
+
+msgid "Restrict payment methods"
+msgstr ""
+
+msgid "When enabled, this coupon can only be used with the selected payment methods."
+msgstr ""
+
+msgid "No payment methods were found in WooCommerce."
+msgstr ""
+
+msgid "Allowed payment methods"
+msgstr ""
+
+msgid "If you enable this restriction without selecting a method, the coupon will not be valid with any payment method."
+msgstr ""
+
+msgid "Coupon payment method settings"
+msgstr ""
+
+msgid "Coupon settings"
+msgstr ""
+
+msgid "This coupon is only valid for cash payments."
+msgstr ""
+
+msgid "Choose allowed payment methods in the \"Usage restriction\" tab of each coupon. The message below is shown when a customer selects a payment method that is not allowed for that coupon."
+msgstr ""
+
+msgid "Payment method restriction error message"
+msgstr ""
+
+msgid "Default message: “%s”"
+msgstr ""
+
+msgid "Save changes"
+msgstr ""
+
+msgid "Repository:"
+msgstr ""
+
+msgid "Search GitHub"
+msgstr ""
+
+msgid "temporary link until the official repository is published"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
