@@ -1,0 +1,52 @@
+.coupon-payment-methods-box {
+	max-width: 900px;
+	margin: 16px 12px;
+	padding: 18px 20px;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.coupon-payment-methods-toggle {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin-bottom: 8px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.coupon-payment-methods-description {
+	margin: 0 25px 16px;
+	color: #646970;
+}
+
+.coupon-payment-methods-label {
+	margin: 4px 0 10px;
+	font-weight: 600;
+}
+
+.coupon-payment-methods-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: 8px;
+}
+
+.coupon-payment-methods-card {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 10px 12px;
+	border: 1px solid #dcdcde;
+	border-radius: 6px;
+	background: #f9f9f9;
+}
+
+.coupon-payment-methods-card span {
+	line-height: 1.5;
+}
+
+.coupon-payment-methods-settings {
+	max-width: 980px;
+}
